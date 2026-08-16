@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Саша — веб-разработчик из Коломны. Создаю выразительные сайты для малого бизнеса.">
+    <meta name="theme-color" content="#12100f">
+    <title>Саша — веб-разработчик в Коломне</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="header" id="top">
+        <a class="logo" href="#top" aria-label="На главную">
+            <span class="logo__mark">S</span>
+            <span class="logo__text">Саша<br><small>веб-разработчик</small></span>
+        </a>
+
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
+            <span></span><span></span>
+            <span class="visually-hidden">Открыть меню</span>
+        </button>
+
+        <nav class="nav" id="main-menu" aria-label="Основная навигация">
+            <a href="#about">Обо мне</a>
+            <a href="#services">Что я делаю</a>
+            <a href="#work">Работы</a>
+            <a class="nav__contact" href="#contact">Обсудить проект</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__glow" aria-hidden="true"></div>
+            <p class="eyebrow reveal">Веб-разработчик · Коломна</p>
+            <h1 id="hero-title" class="reveal">
+                Создаю сайты,<br>
+                <em>у которых есть душа.</em>
+            </h1>
+            <div class="hero__bottom reveal">
+                <p>Помогаю малому бизнесу выглядеть убедительно в интернете — понятно, красиво и без шаблонного ощущения.</p>
+                <a class="round-link" href="#work" aria-label="Посмотреть мою работу">
+                    <span>Смотреть<br>работы</span>
+                    <span class="round-link__arrow" aria-hidden="true">↘</span>
+                </a>
+            </div>
+            <div class="hero__number" aria-hidden="true">16</div>
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee__track">
+                <span>Дизайн с характером</span><i>✦</i>
+                <span>Чистый код</span><i>✦</i>
+                <span>Внимание к деталям</span><i>✦</i>
+                <span>Сайты для бизнеса</span><i>✦</i>
+                <span>Дизайн с характером</span><i>✦</i>
+                <span>Чистый код</span><i>✦</i>
+            </div>
+        </div>
+
+        <section class="about section" id="about" aria-labelledby="about-title">
+            <div class="section__label reveal">01 / Обо мне</div>
+            <div class="about__grid">
+                <div class="photo-placeholder reveal" role="img" aria-label="Здесь позже будет фотография Саши">
+                    <span class="photo-placeholder__corner photo-placeholder__corner--top"></span>
+                    <span class="photo-placeholder__initial">S</span>
+                    <span class="photo-placeholder__text">Здесь будет<br>моя фотография</span>
+                    <span class="photo-placeholder__corner photo-placeholder__corner--bottom"></span>
+                </div>
+
+                <div class="about__content">
+                    <p class="eyebrow reveal">Мне 16 лет, и я уже строю свой путь</p>
+                    <h2 id="about-title" class="reveal">Привет, я <em>Саша.</em></h2>
+                    <p class="about__lead reveal">Я начинающий веб-разработчик из Коломны. Делаю современные сайты для локального бизнеса: кафе, мастеров, небольших производств и компаний, которым важно производить хорошее первое впечатление.</p>
+                    <p class="reveal">Мне нравится не просто собирать страницы, а находить для каждого проекта свой голос. Чтобы за красивой картинкой стояли смысл, удобство и аккуратный код.</p>
+                    <div class="about__facts reveal">
+                        <div><strong>16</strong><span>лет</span></div>
+                        <div><strong>01</strong><span>готовый проект</span></div>
+                        <div><strong>∞</strong><span>желания расти</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section" id="services" aria-labelledby="services-title">
+            <div class="section__label reveal">02 / Что я делаю</div>
+            <div class="services__heading">
+                <h2 id="services-title" class="reveal">От идеи — до сайта,<br><em>которым хочется делиться.</em></h2>
+                <p class="reveal">Собираю проект целиком: продумываю структуру, создаю визуальный стиль, адаптирую под телефоны и помогаю запустить.</p>
+            </div>
+            <div class="service-list">
+                <article class="service reveal">
+                    <span class="service__number">01</span>
+                    <h3>Лендинги</h3>
+                    <p>Одностраничные сайты для услуги, продукта или события.</p>
+                    <span class="service__arrow" aria-hidden="true">↗</span>
+                </article>
+                <article class="service reveal">
+                    <span class="service__number">02</span>
+                    <h3>Сайты для бизнеса</h3>
+                    <p>Понятная презентация компании, которая вызывает доверие.</p>
+                    <span class="service__arrow" aria-hidden="true">↗</span>
+                </article>
+                <article class="service reveal">
+                    <span class="service__number">03</span>
+                    <h3>Разработка</h3>
+                    <p>HTML, CSS, JavaScript и Python — аккуратно и с возможностью развивать проект.</p>
+                    <span class="service__arrow" aria-hidden="true">↗</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="work section" id="work" aria-labelledby="work-title">
+            <div class="section__label reveal">03 / Избранная работа</div>
+            <div class="work__intro">
+                <h2 id="work-title" class="reveal">Мои проекты.<br><em>Настоящий результат.</em></h2>
+                <p class="reveal">Портфолио только начинается. Листайте кейсы — здесь будут появляться новые сайты, сделанные с вниманием к людям и их делу.</p>
+            </div>
+
+            <div class="projects-slider reveal" aria-roledescription="карусель" aria-label="Мои проекты">
+                <div class="projects-slider__viewport">
+                    <div class="projects-slider__track">
+                        <article class="project-slide" aria-label="1 из 2">
+                            <a class="project-card" href="https://ozery-metall.ru" target="_blank" rel="noopener noreferrer">
+                                <div class="project-card__visual project-card__visual--metal">
+                                    <div class="browser-mockup">
+                                        <div class="browser-mockup__bar"><i></i><i></i><i></i><span>ozery-metall.ru</span></div>
+                                        <img src="assets/images/ozery-metall.png" alt="Первый экран сайта Озёры Металл">
+                                    </div>
+                                </div>
+                                <div class="project-card__info">
+                                    <span class="project-card__year">2026</span>
+                                    <div><h3>Озёры Металл</h3><p>Сайт для производственной компании</p></div>
+                                    <span class="project-card__link">Открыть сайт ↗</span>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="project-slide" aria-label="2 из 2">
+                            <a class="project-card" href="../coffee-shop/index.html">
+                                <div class="project-card__visual project-card__visual--coffee">
+                                    <div class="browser-mockup">
+                                        <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Уголь &amp; Зерно</span></div>
+                                        <img src="assets/images/coffee-shop.jpg" alt="Атмосферный интерьер кофейни Уголь и Зерно">
+                                        <div class="project-card__overlay"><span>Кофейня · Коломна</span><strong>Кофе,<br>рождённый огнём</strong></div>
+                                    </div>
+                                </div>
+                                <div class="project-card__info">
+                                    <span class="project-card__year">2026</span>
+                                    <div><h3>Уголь &amp; Зерно</h3><p>Концепт сайта атмосферной кофейни</p></div>
+                                    <span class="project-card__link">Смотреть проект ↗</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="projects-slider__controls">
+                    <div class="projects-slider__arrows">
+                        <button class="slider-arrow slider-arrow--prev" type="button" aria-label="Предыдущий проект">←</button>
+                        <button class="slider-arrow slider-arrow--next" type="button" aria-label="Следующий проект">→</button>
+                    </div>
+                    <div class="projects-slider__dots" role="tablist" aria-label="Выбор проекта"></div>
+                    <p class="projects-slider__counter" aria-live="polite"><span>01</span> / 02</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact" aria-labelledby="contact-title">
+            <div class="contact__ornament" aria-hidden="true">S</div>
+            <p class="eyebrow reveal">Есть идея для сайта?</p>
+            <h2 id="contact-title" class="reveal">Давайте создадим<br><em>что-то настоящее.</em></h2>
+            <p class="contact__text reveal">Расскажите о своём бизнесе. Я выслушаю, задам вопросы и предложу, каким может быть ваш сайт.</p>
+            <div class="contact__actions reveal">
+                <a class="button button--light" href="tel:+79154956417">Позвонить мне</a>
+                <a class="button button--outline" href="https://wa.me/79154956417" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+            </div>
+            <a class="contact__phone reveal" href="tel:+79154956417">8 915 495-64-17</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a class="logo logo--footer" href="#top">
+            <span class="logo__mark">S</span>
+            <span class="logo__text">Саша<br><small>веб-разработчик</small></span>
+        </a>
+        <p>Коломна · Московская область</p>
+        <p>© <span id="year">2026</span> Сделано с душой</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
