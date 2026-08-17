@@ -339,7 +339,14 @@ h1 em, h2 em { color: var(--ember-bright); font-weight: inherit; }
 .services { background: var(--paper); color: var(--ink); }
 .services .section__label { color: #6e6860; border-color: rgba(18,16,15,.18); }
 .services__heading { display: grid; grid-template-columns: 1.5fr .6fr; gap: 60px; align-items: end; margin-bottom: 80px; }
-.services__heading p { max-width: 440px; margin: 0; color: #676059; }
+.services__brief > p { max-width: 440px; margin: 0; color: #676059; }
+.services__prices { margin: 28px 0 0; border-top: 1px solid rgba(18,16,15,.22); }
+.services__prices div { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(18,16,15,.22); }
+.services__prices dt { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.services__prices dd { display: flex; align-items: baseline; gap: 14px; }
+.services__prices strong { color: var(--ember); font-family: var(--serif); font-size: 19px; font-weight: 400; white-space: nowrap; }
+.services__prices span { color: #777068; font-size: 9px; white-space: nowrap; }
+.services__brief .services__note { margin-top: 14px; font-size: 10px; line-height: 1.55; }
 
 .service-list { border-top: 1px solid rgba(18,16,15,.22); }
 .service {
@@ -459,6 +466,8 @@ h1 em, h2 em { color: var(--ember-bright); font-weight: inherit; }
     .about__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .about__facts strong { font-size: 29px; }
     .about__facts span { font-size: 9px; letter-spacing: .06em; }
+    .services__prices div { grid-template-columns: 1fr; gap: 8px; }
+    .services__prices dd { justify-content: space-between; }
     .service { grid-template-columns: 32px 1fr 26px; gap: 14px; }
     .project-card__info { grid-template-columns: 1fr auto; }
     .project-card__year { display: none; }
