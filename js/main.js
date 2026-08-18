@@ -1,18 +1,26 @@
+document.documentElement.classList.add('js');
+
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.nav');
 const navigationLinks = document.querySelectorAll('.nav a');
+const header = document.querySelector('.header');
+
+function updateHeaderState() {
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
 
 function closeMenu() {
     menuButton.setAttribute('aria-expanded', 'false');
     navigation.classList.remove('is-open');
-    document.body.classList.remove('menu-open');
 }
 
 menuButton.addEventListener('click', () => {
     const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
     menuButton.setAttribute('aria-expanded', String(!isOpen));
     navigation.classList.toggle('is-open', !isOpen);
-    document.body.classList.toggle('menu-open', !isOpen);
 });
 
 navigationLinks.forEach((link) => link.addEventListener('click', closeMenu));
@@ -21,19 +29,71 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeMenu();
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12 });
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealElements = document.querySelectorAll('.reveal');
 
-document.querySelectorAll('.reveal').forEach((element, index) => {
-    element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
-    revealObserver.observe(element);
-});
+if ('IntersectionObserver' in window && !reducedMotion) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+        revealObserver.observe(element);
+    });
+} else {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+}
+
+const codeElement = document.querySelector('.hero__code-text');
+
+if (codeElement) {
+    const sourceCode = codeElement.textContent.trim();
+    const escapeCode = (value) => value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;');
+
+    const highlightCode = (value) => {
+        const tokenPattern = /("(?:\\.|[^"\\])*"|\b(?:from|import|async|def|return)\b|\b(?:FastAPI|project)\b)/g;
+        let highlighted = '';
+        let lastIndex = 0;
+
+        for (const match of value.matchAll(tokenPattern)) {
+            highlighted += escapeCode(value.slice(lastIndex, match.index));
+            const token = match[0];
+            const className = token.startsWith('"')
+                ? 'code-string'
+                : /^(from|import|async|def|return)$/.test(token)
+                    ? 'code-keyword'
+                    : 'code-name';
+            highlighted += `<span class="${className}">${escapeCode(token)}</span>`;
+            lastIndex = match.index + token.length;
+        }
+
+        return highlighted + escapeCode(value.slice(lastIndex));
+    };
+
+    if (reducedMotion) {
+        codeElement.innerHTML = highlightCode(sourceCode);
+    } else {
+        let characterIndex = 0;
+        codeElement.textContent = '';
+
+        const typeCharacter = () => {
+            codeElement.innerHTML = highlightCode(sourceCode.slice(0, characterIndex));
+            characterIndex += 1;
+            if (characterIndex <= sourceCode.length) window.setTimeout(typeCharacter, 28);
+        };
+
+        window.setTimeout(typeCharacter, 650);
+    }
+}
 
 const slider = document.querySelector('.projects-slider');
 

@@ -26,13 +26,43 @@
             <a href="#about">Обо мне</a>
             <a href="#services">Что я делаю</a>
             <a href="#work">Работы</a>
-            <a class="nav__contact" href="#contact">Обсудить проект</a>
+            <a class="nav__contact" href="#contact"><span>Обсудить проект</span><span class="nav__contact-arrow" aria-hidden="true">→</span></a>
         </nav>
     </header>
 
     <main>
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero__glow" aria-hidden="true"></div>
+            <div class="hero__code-panel">
+                <div class="hero__editor" aria-hidden="true">
+                    <div class="hero__editor-bar">
+                        <span class="editor-lights"><i></i><i></i><i></i></span>
+                        <span class="editor-file">main.py</span>
+                    </div>
+                    <div class="hero__editor-body">
+                        <div class="hero__line-numbers"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span><span>10</span><span>11</span><span>12</span></div>
+                        <pre class="hero__code"><code class="hero__code-text">from fastapi import FastAPI
+
+app = FastAPI(title="Сайт для бизнеса")
+@app.get("/project")
+async def project():
+    return {
+        "design": "под задачу",
+        "backend": "FastAPI",
+        "responsive": True,
+        "custom": True,
+        "result": "готовый сайт",
+    }</code><span class="hero__code-cursor"></span></pre>
+                    </div>
+                </div>
+                <div class="hero__code-meta">
+                    <div class="hero__tech" aria-label="Используемые технологии"><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>Nginx</span></div>
+                    <a class="round-link" href="#work" aria-label="Посмотреть мои проекты">
+                        <span>Мои<br>проекты</span>
+                        <span class="round-link__arrow" aria-hidden="true">↘</span>
+                    </a>
+                </div>
+            </div>
             <p class="eyebrow reveal">Сайты для малого бизнеса · Коломна</p>
             <h1 id="hero-title" class="reveal">
                 Создаю сайты<br>
@@ -40,27 +70,29 @@
             </h1>
             <div class="hero__bottom reveal">
                 <p>Продумываю структуру, дизайн и разработку, чтобы сайт понятно рассказывал о вашем деле и вызывал доверие с первого экрана.</p>
-                <a class="round-link" href="#work" aria-label="Посмотреть мою работу">
-                    <span>Мои<br>проекты</span>
-                    <span class="round-link__arrow" aria-hidden="true">↘</span>
-                </a>
             </div>
             <div class="hero__word" aria-hidden="true">WEB</div>
         </section>
 
         <div class="marquee" aria-hidden="true">
             <div class="marquee__track">
-                <span>Дизайн с характером</span><i>✦</i>
-                <span>Понятная структура</span><i>✦</i>
-                <span>Адаптив на телефонах</span><i>✦</i>
-                <span>Разработка и запуск</span><i>✦</i>
-                <span>Дизайн с характером</span><i>✦</i>
-                <span>Понятная структура</span><i>✦</i>
+                <div class="marquee__group">
+                    <span>Дизайн с характером</span><i>✦</i>
+                    <span>Понятная структура</span><i>✦</i>
+                    <span>Адаптив на телефонах</span><i>✦</i>
+                    <span>Разработка и запуск</span><i>✦</i>
+                </div>
+                <div class="marquee__group">
+                    <span>Дизайн с характером</span><i>✦</i>
+                    <span>Понятная структура</span><i>✦</i>
+                    <span>Адаптив на телефонах</span><i>✦</i>
+                    <span>Разработка и запуск</span><i>✦</i>
+                </div>
             </div>
         </div>
 
         <section class="about section" id="about" aria-labelledby="about-title">
-            <div class="section__label reveal">01 / Обо мне</div>
+            <div class="section__label reveal">// 01 Обо мне</div>
             <div class="about__grid">
                 <div class="photo-placeholder reveal" role="img" aria-label="Здесь позже будет фотография Саши">
                     <span class="photo-placeholder__corner photo-placeholder__corner--top"></span>
@@ -74,6 +106,10 @@
                     <h2 id="about-title" class="reveal">Привет, я <em>Саша.</em></h2>
                     <p class="about__lead reveal">Делаю современные сайты для локального бизнеса: кафе, мастеров, небольших производств и компаний, которым важно уверенно выглядеть в интернете.</p>
                     <p class="reveal">Для каждого проекта ищу свой визуальный голос, а за красивой картинкой оставляю понятную структуру, удобство и аккуратный код. Все этапы веду сам и остаюсь на связи напрямую.</p>
+                    <div class="about__meta reveal" tabindex="0" aria-label="Технологии и специализация">
+                        <code><span class="about__meta-key">stack</span> = <span class="about__meta-value">["HTML", "CSS", "JS", "Python"]</span></code>
+                        <code><span class="about__meta-key">focus</span> = <span class="about__meta-value">"сайты для бизнеса"</span></code>
+                    </div>
                     <div class="about__facts reveal">
                         <div><strong>3–7</strong><span>рабочих дней на лендинг</span></div>
                         <div><strong>100%</strong><span>адаптивный дизайн</span></div>
@@ -84,7 +120,7 @@
         </section>
 
         <section class="services section" id="services" aria-labelledby="services-title">
-            <div class="section__label reveal">02 / Что я делаю</div>
+            <div class="section__label reveal">// 02 Что я делаю</div>
             <div class="services__heading">
                 <h2 id="services-title" class="reveal">От задачи бизнеса —<br><em>до работающего сайта.</em></h2>
                 <div class="services__brief reveal">
@@ -104,28 +140,22 @@
             </div>
             <div class="service-list">
                 <article class="service reveal">
-                    <span class="service__number">01</span>
                     <h3>Структура и смысл</h3>
                     <p>Определяю, что важно клиенту, и выстраиваю понятный путь к обращению.</p>
-                    <span class="service__arrow" aria-hidden="true">↗</span>
                 </article>
                 <article class="service reveal">
-                    <span class="service__number">02</span>
                     <h3>Дизайн с характером</h3>
                     <p>Создаю собственную атмосферу проекта без ощущения готового шаблона.</p>
-                    <span class="service__arrow" aria-hidden="true">↗</span>
                 </article>
                 <article class="service reveal">
-                    <span class="service__number">03</span>
                     <h3>Разработка и запуск</h3>
                     <p>Верстаю адаптивно, подключаю нужную логику и помогаю опубликовать сайт.</p>
-                    <span class="service__arrow" aria-hidden="true">↗</span>
                 </article>
             </div>
         </section>
 
         <section class="work section" id="work" aria-labelledby="work-title">
-            <div class="section__label reveal">03 / Избранные работы</div>
+            <div class="section__label reveal">// 03 Избранные работы</div>
             <div class="work__intro">
                 <h2 id="work-title" class="reveal">Разные задачи.<br><em>Разные характеры.</em></h2>
                 <p class="reveal">Производство, кофейня и гостевой дом — для каждой задачи свой ритм, подача и визуальный язык. Листайте и открывайте сайты целиком.</p>
@@ -135,7 +165,7 @@
                 <div class="projects-slider__viewport">
                     <div class="projects-slider__track">
                         <article class="project-slide" aria-label="1 из 3">
-                            <a class="project-card" href="https://ozery-metall.ru" target="_blank" rel="noopener noreferrer">
+                            <a class="project-card project-card--metal" href="https://ozery-metall.ru" target="_blank" rel="noopener noreferrer">
                                 <div class="project-card__visual project-card__visual--metal">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>ozery-metall.ru</span></div>
@@ -151,7 +181,7 @@
                         </article>
 
                         <article class="project-slide" aria-label="2 из 3">
-                            <a class="project-card" href="https://coffee.sashaportfolio.ru/" target="_blank" rel="noopener noreferrer">
+                            <a class="project-card project-card--coffee" href="https://coffee.sashaportfolio.ru/" target="_blank" rel="noopener noreferrer">
                                 <div class="project-card__visual project-card__visual--coffee">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Уголь &amp; Зерно</span></div>
@@ -167,7 +197,7 @@
                         </article>
 
                         <article class="project-slide" aria-label="3 из 3">
-                            <a class="project-card" href="https://quiet.sashaportfolio.ru/" target="_blank" rel="noopener noreferrer">
+                            <a class="project-card project-card--guesthouse" href="https://quiet.sashaportfolio.ru/" target="_blank" rel="noopener noreferrer">
                                 <div class="project-card__visual project-card__visual--guesthouse">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Тихая Коломна</span></div>
@@ -201,10 +231,13 @@
             <h2 id="contact-title" class="reveal">Давайте покажем бизнес<br><em>с его лучшей стороны.</em></h2>
             <p class="contact__text reveal">Расскажите, чем вы занимаетесь и какая задача стоит перед сайтом. Я задам несколько вопросов и предложу подходящий формат.</p>
             <div class="contact__actions reveal">
-                <a class="button button--light" href="tel:+79154956417">Позвонить мне</a>
+                <a class="button button--light" href="tel:+79154956417">Обсудить проект</a>
                 <a class="button button--outline" href="https://wa.me/79154956417" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
             </div>
-            <a class="contact__phone reveal" href="tel:+79154956417">8 915 495-64-17</a>
+            <div class="contact__details reveal">
+                <a class="contact__phone" href="tel:+79154956417">8 915 495-64-17</a>
+                <p class="contact__response">Отвечу в течение дня</p>
+            </div>
         </section>
     </main>
 
@@ -213,8 +246,15 @@
             <span class="logo__mark">S</span>
             <span class="logo__text">Саша<br><small>веб-разработчик</small></span>
         </a>
-        <p>Коломна · Московская область</p>
-        <p>© <span id="year">2026</span> Сделано с душой</p>
+        <nav class="footer__socials" aria-label="Социальные сети">
+            <a href="https://t.me/Bloodween" target="_blank" rel="noopener noreferrer"><span>Telegram</span><span class="footer__social-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://github.com/alexcode00" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span class="footer__social-arrow" aria-hidden="true">↗</span></a>
+            <a href="https://max.ru/u/f9LHodD0cOL6n0bJAV9KCeRldcliefZqDAzs-9vS93BQ5WuGHz59qTJHSwY" target="_blank" rel="noopener noreferrer"><span>MAX</span><span class="footer__social-arrow" aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="footer__meta">
+            <p>Коломна · Московская область</p>
+            <p>© <span id="year">2026</span> Сделано с душой</p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>
