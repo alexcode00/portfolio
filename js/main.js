@@ -129,6 +129,13 @@ if (slider) {
             const isActive = slideIndex === activeIndex;
             slide.setAttribute('aria-hidden', String(!isActive));
             slide.querySelector('a').tabIndex = isActive ? 0 : -1;
+
+            const projectPreview = slide.querySelector('[data-project-preview]');
+            if (projectPreview) {
+                projectPreview.dispatchEvent(new Event('project-preview-reset'));
+                projectPreview.scrollTop = 0;
+                projectPreview.closest('.project-preview')?.style.setProperty('--preview-progress-offset', '0%');
+            }
         });
 
         dots.forEach((dot, dotIndex) => {
@@ -164,6 +171,155 @@ if (slider) {
     }
 
     showSlide(0);
+}
+
+const desktopPreviewQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+if (desktopPreviewQuery.matches) {
+    document.querySelectorAll('[data-project-preview]').forEach((viewport) => {
+        const preview = viewport.closest('.project-preview');
+        let animationFrame = 0;
+        let isAutoScrolling = false;
+        let animationStartedAt = 0;
+        let animationStartScroll = 0;
+        let animationDistance = 0;
+        const autoScrollDuration = 2000;
+
+        const updateProgress = () => {
+            const scrollRange = viewport.scrollHeight - viewport.clientHeight;
+            const progress = scrollRange > 0 ? viewport.scrollTop / scrollRange : 0;
+            preview.style.setProperty('--preview-progress-offset', `${progress * 75}%`);
+
+            if (!isAutoScrolling && viewport.scrollTop > 2) {
+                viewport.dataset.interacted = 'true';
+            }
+        };
+
+        const stopAutoScroll = () => {
+            if (animationFrame) window.cancelAnimationFrame(animationFrame);
+            animationFrame = 0;
+            isAutoScrolling = false;
+        };
+
+        const animateAutoScroll = (timestamp) => {
+            if (!isAutoScrolling) return;
+            if (!animationStartedAt) animationStartedAt = timestamp;
+
+            const elapsed = Math.min((timestamp - animationStartedAt) / autoScrollDuration, 1);
+            const easedProgress = 0.5 - Math.cos(Math.PI * elapsed) / 2;
+            viewport.scrollTop = animationStartScroll + animationDistance * easedProgress;
+
+            if (elapsed < 1) {
+                animationFrame = window.requestAnimationFrame(animateAutoScroll);
+            } else {
+                animationFrame = 0;
+                isAutoScrolling = false;
+            }
+        };
+
+        const startAutoScroll = () => {
+            if (
+                reducedMotion ||
+                viewport.dataset.autoHintShown === 'true' ||
+                viewport.dataset.interacted === 'true' ||
+                viewport.scrollTop > 2
+            ) return;
+
+            const scrollRange = viewport.scrollHeight - viewport.clientHeight;
+            if (scrollRange <= 0) return;
+
+            viewport.dataset.autoHintShown = 'true';
+            animationStartScroll = viewport.scrollTop;
+            animationDistance = Math.min(150, scrollRange - animationStartScroll);
+            if (animationDistance <= 0) return;
+
+            animationStartedAt = 0;
+            isAutoScrolling = true;
+            animationFrame = window.requestAnimationFrame(animateAutoScroll);
+        };
+
+        const takeManualControl = () => {
+            stopAutoScroll();
+            viewport.dataset.interacted = 'true';
+        };
+
+        viewport.addEventListener('pointerenter', startAutoScroll);
+        viewport.addEventListener('wheel', takeManualControl, { passive: true });
+        viewport.addEventListener('pointerdown', takeManualControl);
+        viewport.addEventListener('click', takeManualControl);
+        viewport.addEventListener('dragstart', takeManualControl);
+
+        viewport.addEventListener('pointerleave', () => {
+            stopAutoScroll();
+        });
+
+        viewport.addEventListener('project-preview-reset', stopAutoScroll);
+        viewport.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+    });
+}
+
+const contactSection = document.querySelector('.contact');
+const cursorMotionQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+if (contactSection && cursorMotionQuery.matches && !reducedMotion) {
+    const ornament = contactSection.querySelector('.contact__ornament');
+    const primaryContactButton = contactSection.querySelector('.button--light');
+
+    const createSmoothTransform = (element, smoothing = 0.14) => {
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let animationFrame = 0;
+
+        const animate = () => {
+            currentX += (targetX - currentX) * smoothing;
+            currentY += (targetY - currentY) * smoothing;
+            element.style.transform = `translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+
+            if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+                animationFrame = window.requestAnimationFrame(animate);
+            } else {
+                currentX = targetX;
+                currentY = targetY;
+                element.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
+                animationFrame = 0;
+            }
+        };
+
+        return (x, y) => {
+            targetX = x;
+            targetY = y;
+            if (!animationFrame) animationFrame = window.requestAnimationFrame(animate);
+        };
+    };
+
+    if (ornament) {
+        const moveOrnament = createSmoothTransform(ornament, 0.1);
+
+        contactSection.addEventListener('pointermove', (event) => {
+            const bounds = contactSection.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+            const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+            moveOrnament(-x * 11, -y * 11);
+        }, { passive: true });
+
+        contactSection.addEventListener('pointerleave', () => moveOrnament(0, 0));
+    }
+
+    if (primaryContactButton) {
+        const movePrimaryButton = createSmoothTransform(primaryContactButton, 0.18);
+
+        primaryContactButton.addEventListener('pointermove', (event) => {
+            const bounds = primaryContactButton.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+            const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+            movePrimaryButton(x * 4, y * 4);
+        }, { passive: true });
+
+        primaryContactButton.addEventListener('pointerleave', () => movePrimaryButton(0, 0));
+    }
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();

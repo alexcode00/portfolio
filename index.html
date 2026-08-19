@@ -139,16 +139,19 @@ async def project():
                 </div>
             </div>
             <div class="service-list">
-                <article class="service reveal">
-                    <h3>Структура и смысл</h3>
+                <article class="service service--structure reveal">
+                    <span class="service__texture service__texture--grid" aria-hidden="true"></span>
+                    <h3>Структура<br>и смысл</h3>
                     <p>Определяю, что важно клиенту, и выстраиваю понятный путь к обращению.</p>
                 </article>
-                <article class="service reveal">
-                    <h3>Дизайн с характером</h3>
+                <article class="service service--design reveal">
+                    <span class="service__texture service__texture--type" aria-hidden="true"></span>
+                    <h3>Дизайн<br>с характером</h3>
                     <p>Создаю собственную атмосферу проекта без ощущения готового шаблона.</p>
                 </article>
-                <article class="service reveal">
-                    <h3>Разработка и запуск</h3>
+                <article class="service service--development reveal">
+                    <span class="service__texture service__texture--meta" aria-hidden="true"></span>
+                    <h3>Разработка<br>и запуск</h3>
                     <p>Верстаю адаптивно, подключаю нужную логику и помогаю опубликовать сайт.</p>
                 </article>
             </div>
@@ -169,7 +172,12 @@ async def project():
                                 <div class="project-card__visual project-card__visual--metal">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>ozery-metall.ru</span></div>
-                                        <img src="assets/images/ozery-metall.png" alt="Первый экран сайта Озёры Металл">
+                                        <div class="project-preview">
+                                            <div class="project-preview__viewport" data-project-preview>
+                                                <img src="assets/images/ozery-metall-full.png" alt="Полная страница сайта Озёры Металл" loading="lazy" decoding="async">
+                                            </div>
+                                            <span class="project-preview__progress" aria-hidden="true"><i></i></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="project-card__info">
@@ -185,7 +193,12 @@ async def project():
                                 <div class="project-card__visual project-card__visual--coffee">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Уголь &amp; Зерно</span></div>
-                                        <img src="assets/images/coffee-shop.png" alt="Первый экран сайта кофейни Уголь и Зерно">
+                                        <div class="project-preview">
+                                            <div class="project-preview__viewport" data-project-preview>
+                                                <img src="assets/images/coffee-shop-full.png" alt="Полная страница сайта кофейни Уголь и Зерно" loading="lazy" decoding="async">
+                                            </div>
+                                            <span class="project-preview__progress" aria-hidden="true"><i></i></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="project-card__info">
@@ -201,7 +214,12 @@ async def project():
                                 <div class="project-card__visual project-card__visual--guesthouse">
                                     <div class="browser-mockup">
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Тихая Коломна</span></div>
-                                        <img src="assets/images/quiet-kolomna.png" alt="Первый экран сайта гостевого дома Тихая Коломна">
+                                        <div class="project-preview">
+                                            <div class="project-preview__viewport" data-project-preview>
+                                                <img src="assets/images/quiet-kolomna-full.png" alt="Полная страница сайта гостевого дома Тихая Коломна" loading="lazy" decoding="async">
+                                            </div>
+                                            <span class="project-preview__progress" aria-hidden="true"><i></i></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="project-card__info">
@@ -236,7 +254,6 @@ async def project():
             </div>
             <div class="contact__details reveal">
                 <a class="contact__phone" href="tel:+79154956417">8 915 495-64-17</a>
-                <p class="contact__response">Отвечу в течение дня</p>
             </div>
         </section>
     </main>
