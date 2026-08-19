@@ -26,7 +26,10 @@ menuButton.addEventListener('click', () => {
 navigationLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
+    if (event.key === 'Escape' && navigation.classList.contains('is-open')) {
+        closeMenu();
+        menuButton.focus();
+    }
 });
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -141,7 +144,7 @@ if (slider) {
         dots.forEach((dot, dotIndex) => {
             const isActive = dotIndex === activeIndex;
             dot.classList.toggle('is-active', isActive);
-            dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            dot.setAttribute('aria-pressed', String(isActive));
         });
 
         counter.innerHTML = `<span>${String(activeIndex + 1).padStart(2, '0')}</span> / ${String(slides.length).padStart(2, '0')}`;

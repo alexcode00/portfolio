@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Саша — веб-разработчик из Коломны. Создаю выразительные сайты для малого бизнеса.">
     <meta name="theme-color" content="#12100f">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Саша — веб-разработчик в Коломне">
+    <meta property="og:description" content="Создаю выразительные сайты для малого бизнеса: от структуры и дизайна до разработки и запуска.">
+    <meta property="og:url" content="https://sashaportfolio.ru/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Саша — веб-разработчик в Коломне">
+    <meta name="twitter:description" content="Создаю выразительные сайты для малого бизнеса: от структуры и дизайна до разработки и запуска.">
     <title>Саша — веб-разработчик в Коломне</title>
+    <link rel="canonical" href="https://sashaportfolio.ru/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Unbounded:wght@600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -104,10 +116,10 @@ async def project():
                 <div class="about__content">
                     <p class="eyebrow reveal">Веб-разработчик из Коломны</p>
                     <h2 id="about-title" class="reveal">Привет, я <em>Саша.</em></h2>
-                    <p class="about__lead reveal">Делаю современные сайты для локального бизнеса: кафе, мастеров, небольших производств и компаний, которым важно уверенно выглядеть в интернете.</p>
+                    <p class="about__lead reveal">Делаю современные сайты для локального бизнеса: сам продумываю структуру и визуальную подачу, верстаю, подключаю нужную логику и довожу проект до публикации.</p>
                     <p class="reveal">Для каждого проекта ищу свой визуальный голос, а за красивой картинкой оставляю понятную структуру, удобство и аккуратный код. Все этапы веду сам и остаюсь на связи напрямую.</p>
                     <div class="about__meta reveal" tabindex="0" aria-label="Технологии и специализация">
-                        <code><span class="about__meta-key">stack</span> = <span class="about__meta-value">["HTML", "CSS", "JS", "Python"]</span></code>
+                        <code><span class="about__meta-key">stack</span> = <span class="about__meta-value">"HTML · CSS · JavaScript · Python · FastAPI"</span></code>
                         <code><span class="about__meta-key">focus</span> = <span class="about__meta-value">"сайты для бизнеса"</span></code>
                     </div>
                     <div class="about__facts reveal">
@@ -127,15 +139,15 @@ async def project():
                     <p>Не просто оформляю страницу: разбираюсь в задаче, выстраиваю подачу и довожу сайт до публикации.</p>
                     <dl class="services__prices">
                         <div>
-                            <dt>Лендинг</dt>
+                            <dt>Лендинг<small>Структура, индивидуальный дизайн, адаптив и публикация.</small></dt>
                             <dd><strong>от 15 000 ₽</strong><span>3–7 рабочих дней</span></dd>
                         </div>
                         <div>
-                            <dt>Сайт компании</dt>
+                            <dt>Сайт компании<small>Расширенная структура, дизайн, адаптив, интерактивность и публикация.</small></dt>
                             <dd><strong>от 35 000 ₽</strong><span>7–14 рабочих дней</span></dd>
                         </div>
                     </dl>
-                    <p class="services__note">Точная стоимость и срок — после короткого обсуждения задачи и материалов.</p>
+                    <p class="services__note">Финальная стоимость и срок зависят от задачи, объёма и готовности материалов.</p>
                 </div>
             </div>
             <div class="service-list">
@@ -174,7 +186,7 @@ async def project():
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>ozery-metall.ru</span></div>
                                         <div class="project-preview">
                                             <div class="project-preview__viewport" data-project-preview>
-                                                <img src="assets/images/ozery-metall-full.png" alt="Полная страница сайта Озёры Металл" loading="lazy" decoding="async">
+                                                <img src="assets/images/ozery-metall-full.webp" width="1920" height="2556" alt="Полная страница сайта Озёры Металл" loading="lazy" decoding="async">
                                             </div>
                                             <span class="project-preview__progress" aria-hidden="true"><i></i></span>
                                         </div>
@@ -182,7 +194,15 @@ async def project():
                                 </div>
                                 <div class="project-card__info">
                                     <span class="project-card__year">2026</span>
-                                    <div><h3>Озёры Металл</h3><p>Сайт для производственной компании</p></div>
+                                    <div class="project-card__body">
+                                        <h3>Озёры Металл</h3>
+                                        <p>Сайт для производственной компании</p>
+                                        <dl class="project-card__details">
+                                            <div><dt>ЗАДАЧА</dt><dd>Показать ассортимент и быстро привести клиента к звонку или WhatsApp.</dd></div>
+                                            <div><dt>ЧТО СДЕЛАЛ</dt><dd>Структура, дизайн, адаптивный frontend и слайдер.</dd></div>
+                                            <div><dt>СТЕК</dt><dd>HTML / CSS / JavaScript / Python / FastAPI / HTTPX</dd></div>
+                                        </dl>
+                                    </div>
                                     <span class="project-card__link">Открыть сайт ↗</span>
                                 </div>
                             </a>
@@ -195,7 +215,7 @@ async def project():
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Уголь &amp; Зерно</span></div>
                                         <div class="project-preview">
                                             <div class="project-preview__viewport" data-project-preview>
-                                                <img src="assets/images/coffee-shop-full.png" alt="Полная страница сайта кофейни Уголь и Зерно" loading="lazy" decoding="async">
+                                                <img src="assets/images/coffee-shop-full.webp" width="1920" height="3464" alt="Полная страница сайта кофейни Уголь и Зерно" loading="lazy" decoding="async">
                                             </div>
                                             <span class="project-preview__progress" aria-hidden="true"><i></i></span>
                                         </div>
@@ -203,7 +223,15 @@ async def project():
                                 </div>
                                 <div class="project-card__info">
                                     <span class="project-card__year">2026</span>
-                                    <div><h3>Уголь &amp; Зерно</h3><p>Концепт сайта атмосферной кофейни</p></div>
+                                    <div class="project-card__body">
+                                        <h3>Уголь &amp; Зерно</h3>
+                                        <p>Концепт сайта атмосферной кофейни</p>
+                                        <dl class="project-card__details">
+                                            <div><dt>ЗАДАЧА</dt><dd>Передать атмосферу кофейни и сделать меню понятным с первого экрана.</dd></div>
+                                            <div><dt>ЧТО СДЕЛАЛ</dt><dd>Структура, дизайн, адаптивный frontend и интерактивное меню.</dd></div>
+                                            <div><dt>СТЕК</dt><dd>HTML / CSS / JavaScript</dd></div>
+                                        </dl>
+                                    </div>
                                     <span class="project-card__link">Смотреть проект ↗</span>
                                 </div>
                             </a>
@@ -216,7 +244,7 @@ async def project():
                                         <div class="browser-mockup__bar"><i></i><i></i><i></i><span>Тихая Коломна</span></div>
                                         <div class="project-preview">
                                             <div class="project-preview__viewport" data-project-preview>
-                                                <img src="assets/images/quiet-kolomna-full.png" alt="Полная страница сайта гостевого дома Тихая Коломна" loading="lazy" decoding="async">
+                                                <img src="assets/images/quiet-kolomna-full.webp" width="1920" height="5588" alt="Полная страница сайта гостевого дома Тихая Коломна" loading="lazy" decoding="async">
                                             </div>
                                             <span class="project-preview__progress" aria-hidden="true"><i></i></span>
                                         </div>
@@ -224,7 +252,15 @@ async def project():
                                 </div>
                                 <div class="project-card__info">
                                     <span class="project-card__year">2026</span>
-                                    <div><h3>Тихая Коломна</h3><p>Концепт сайта бутикового гостевого дома</p></div>
+                                    <div class="project-card__body">
+                                        <h3>Тихая Коломна</h3>
+                                        <p>Концепт сайта бутикового гостевого дома</p>
+                                        <dl class="project-card__details">
+                                            <div><dt>ЗАДАЧА</dt><dd>Познакомить с домом, помочь выбрать комнату и отправить запрос.</dd></div>
+                                            <div><dt>ЧТО СДЕЛАЛ</dt><dd>Структура, дизайн, адаптивный frontend, выбор комнаты и WhatsApp-форма.</dd></div>
+                                            <div><dt>СТЕК</dt><dd>HTML / CSS / JavaScript</dd></div>
+                                        </dl>
+                                    </div>
                                     <span class="project-card__link">Смотреть проект ↗</span>
                                 </div>
                             </a>
@@ -237,7 +273,7 @@ async def project():
                         <button class="slider-arrow slider-arrow--prev" type="button" aria-label="Предыдущий проект">←</button>
                         <button class="slider-arrow slider-arrow--next" type="button" aria-label="Следующий проект">→</button>
                     </div>
-                    <div class="projects-slider__dots" role="tablist" aria-label="Выбор проекта"></div>
+                    <div class="projects-slider__dots" role="group" aria-label="Выбор проекта"></div>
                     <p class="projects-slider__counter" aria-live="polite"><span>01</span> / 03</p>
                 </div>
             </div>
@@ -247,7 +283,7 @@ async def project():
             <div class="contact__ornament" aria-hidden="true">S</div>
             <p class="eyebrow reveal">Нужен сайт для вашего дела?</p>
             <h2 id="contact-title" class="reveal">Давайте покажем бизнес<br><em>с его лучшей стороны.</em></h2>
-            <p class="contact__text reveal">Расскажите, чем вы занимаетесь и какая задача стоит перед сайтом. Я задам несколько вопросов и предложу подходящий формат.</p>
+            <p class="contact__text reveal">Расскажите о задаче. Я задам несколько уточняющих вопросов и предложу подходящий формат, сроки и ориентир по стоимости.</p>
             <div class="contact__actions reveal">
                 <a class="button button--light" href="tel:+79154956417">Обсудить проект</a>
                 <a class="button button--outline" href="https://wa.me/79154956417" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
